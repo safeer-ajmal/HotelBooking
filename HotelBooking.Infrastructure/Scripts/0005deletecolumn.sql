@@ -1,0 +1,1 @@
+alter table Hotel drop column Stars1;

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HotelBooking.Domain.Entities.Hotel>
+
+	<div class="card border-0 p-4">
+		<div class="card-header p-3 bg-primary text-center">
+			<div class="row">
+			<h2 class="text-white">Hotels</h2>
+		</div>
+	</div>
+		<div class="card-body p-3 border">
+			<div class=" pb-3 col-6 offset-6 text-end">
+				<a asp-controller="Hotel" asp-action="Create" class="  btn btn-secondary">
+					create
+				</a>
+			</div>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+					<th>Location</th>
+					<th>Price</th>
+					<th>HotelCode</th>
+					<th>Stars</th>
+					<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var obj in Model)
+					{<tr>
+						<td>@obj.Name</td>
+						<td>@obj.Location</td>
+						<td>@obj.Price</td>
+						<td>@obj.HotelCode</td>
+						<td>@obj.Stars</td>
+						<td><div class="d-flex justify-content-center">
+							<a asp-action="Edit" asp-controller="Hotel" asp-route-hotelid="@obj.Id" class="btn  ">
+									<i class="bi bi-pencil-square"></i>
+							</a>
+							<a asp-controller="Hotel" asp-action="Delete" asp-route-hotelid="@obj.Id" class=" btn ">
+									<i class="bi bi-trash-fill"></i>
+							</a>
+						</div>
+							</td>
+					</tr>}
+				</tbody>
+			</table>
+		</div>
+	</div>
